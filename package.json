@@ -1,5 +1,5 @@
 {
-  "name": "react-starter",
+  "name": "react-google-poc",
   "version": "1.0.0",
   "description": "A basic template that consists of the essential elements that are required to start building a React application",
   "scripts": {
@@ -16,7 +16,8 @@
     "lint": "eslint .; exit 0",
     "lint:fix": "eslint . --fix; exit 0",
     "start": "npm run serve:dev",
-    "test": "echo \"No tests available\"; exit 0"
+    "test": "echo \"No tests available\"; exit 0",
+    "stop": "kill --signal SIGINT react-google-poc"
   },
   "repository": {
     "type": "git",
@@ -50,14 +51,15 @@
     "style-loader": "^0.21.0",
     "uglifyjs-webpack-plugin": "^1.2.5",
     "url-loader": "^1.0.1",
-    "webpack": "^4.9.1",
+    "webpack": "^4.20.2",
     "webpack-bundle-analyzer": "^2.13.1",
-    "webpack-cli": "^2.1.4",
+    "webpack-cli": "^3.3.9",
     "webpack-dashboard": "^2.0.0",
     "webpack-dev-server": "^3.1.4",
     "webpack-merge": "^4.1.2"
   },
   "dependencies": {
+    "axios": "^0.19.0",
     "normalize.css": "^8.0.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0"
