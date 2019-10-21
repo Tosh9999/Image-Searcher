@@ -1,14 +1,14 @@
 // PACKAGE DEPENDENCIES
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
 // COMPONENTS
 
-import App from './components/App';
+import App from "./App";
 
 // STYLES
 
-import 'normalize.css';
-import './styles/app.scss';
+import "normalize.css";
+import "./styles/app.scss";
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById("app"));

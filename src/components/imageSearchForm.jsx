@@ -1,12 +1,16 @@
-class ImageSearcher extends Component {
-  state = {
-    searchTerms: "",
-    api_key: "",
-    search_engine_id: "",
-    results_per_term: 10,
-    safe_search_level: "high",
-    picture_rights: "cc_publicdomain"
-  };
+class ImageSearchForm extends Component {
+  constructor() {
+    super();
+    this.state = {
+      searchTerms: "",
+      api_key: "",
+      search_engine_id: "",
+      results_per_term: 10,
+      safe_search_level: "high",
+      picture_rights: "cc_publicdomain"
+    };
+  }
+
   render() {
     return (
       <div>
@@ -73,9 +77,11 @@ class ImageSearcher extends Component {
             <option value="cc_nonderived">cc_nonderived</option>
           </select>
         </p>
+
+        <button>Submit</button>
       </div>
     );
   }
 }
 
-export default ImageSearcher;
+export default ImageSearchForm;
