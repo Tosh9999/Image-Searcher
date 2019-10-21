@@ -1,3 +1,5 @@
+import React, { Component } from "react";
+
 class ImageSearchForm extends Component {
   constructor() {
     super();
@@ -20,6 +22,9 @@ class ImageSearchForm extends Component {
             id="searchTerms"
             name="searchTerms"
             value={this.state.searchTerms}
+            onChange={e => {
+              this.setState({ searchTerms: e.target.value });
+            }}
           ></textarea>
         </p>
         <p>
@@ -29,6 +34,9 @@ class ImageSearchForm extends Component {
             type="text"
             name="api_key"
             value={this.state.api_key}
+            onChange={e => {
+              this.setState({ api_key: e.target.value });
+            }}
           />
         </p>
         <p>
@@ -38,6 +46,9 @@ class ImageSearchForm extends Component {
             type="text"
             name="search_engine_id"
             value={this.state.search_engine_id}
+            onChange={e => {
+              this.setState({ search_engine_id: e.target.value });
+            }}
           />
         </p>
         <p>
@@ -47,6 +58,9 @@ class ImageSearchForm extends Component {
             type="text"
             name="results_per_term"
             value={this.state.results_per_term}
+            onChange={e => {
+              this.setState({ results_per_term: e.target.value });
+            }}
           />
         </p>
 
@@ -56,6 +70,9 @@ class ImageSearchForm extends Component {
             id="safe_search_level"
             name="safe_search_level"
             value={this.state.safe_search_level}
+            onChange={e => {
+              this.setState({ safe_search_level: e.target.value });
+            }}
           >
             <option value="off">Off</option>
             <option value="medium">Medium</option>
@@ -69,6 +86,9 @@ class ImageSearchForm extends Component {
             id="picture_rights"
             name="picture_rights"
             value={this.state.picture_rights}
+            onChange={e => {
+              this.setState({ picture_rights: e.target.value });
+            }}
           >
             <option value="cc_publicdomain">cc_publicdomain</option>
             <option value="cc_attribute">cc_attribute</option>
