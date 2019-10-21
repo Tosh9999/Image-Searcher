@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+import SearchGrid from "./searchGrid";
 
 class ImageSearchForm extends Component {
   constructor() {
     super();
     this.state = {
+      searchBegun: false,
       searchTerms: "",
       api_key: "",
       search_engine_id: "",
@@ -11,9 +13,17 @@ class ImageSearchForm extends Component {
       safe_search_level: "high",
       picture_rights: "cc_publicdomain"
     };
+
+    this.triggerSearch = this.triggerSearch.bind(this);
+  }
+
+  triggerSearch() {
+    this.setState({ searchBegun: true });
   }
 
   render() {
+    let grid = this.state.searchBegun && <SearchGrid />;
+
     return (
       <div>
         <p>
@@ -63,7 +73,6 @@ class ImageSearchForm extends Component {
             }}
           />
         </p>
-
         <p>
           <label for="safe_search_level">Safe Search Level:</label>
           <select
@@ -79,7 +88,6 @@ class ImageSearchForm extends Component {
             <option value="high">High</option>
           </select>
         </p>
-
         <p>
           <label for="picture_rights"></label>
           <select
@@ -97,8 +105,8 @@ class ImageSearchForm extends Component {
             <option value="cc_nonderived">cc_nonderived</option>
           </select>
         </p>
-
-        <button>Submit</button>
+        <button onClick={this.triggerSearch}>Search</button>
+        {grid}
       </div>
     );
   }
