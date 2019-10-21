@@ -7,7 +7,7 @@
     "build:dev": "npm run build -- --env.env=dev",
     "build:dev:watch": "npm run build:dev -- --watch",
     "build:dev:bundleanalyze": "npm run build:dev -- --env.addons=bundleanalyze",
-    "serve:dev": "webpack-dev-server --env.env=dev --hot",
+    "serve:dev": "webpack-dev-server --display-error-details --env.env=dev --hot",
     "serve:dev:dashboard": "webpack-dashboard -- webpack-dev-server --hot --env.env=dev --env.addons=dashboard",
     "build:prod": "npm run build -- -p --env.env=prod",
     "build:prod:watch": "npm run build:prod -- --watch",
@@ -60,6 +60,7 @@
   },
   "dependencies": {
     "axios": "^0.19.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "normalize.css": "^8.0.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0"

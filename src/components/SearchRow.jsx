@@ -1,13 +1,22 @@
-import React, { Component } from 'react';
-import SearchedImage from './SearchedImage';
+import React, { Component } from "react";
+import SearchedImage from "./searchedImage";
 
 class SearchRow extends Component {
-  state = {};
+  //state = {};
 
   render() {
-    const { imageUrls } = this.props;
+    const { imageUrls, searchTerm } = this.props;
 
-    return <tr></tr>;
+    return (
+      <tr>
+        <th>{searchTerm}</th>
+        <td>
+          {imageUrls.map(url => (
+            <SearchedImage imageUrl={url} />
+          ))}
+        </td>
+      </tr>
+    );
   }
 }
 

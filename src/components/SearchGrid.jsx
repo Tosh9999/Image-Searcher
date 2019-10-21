@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import SearchRow from './SearchRow';
+import React, { Component } from "react";
+import SearchRow from "./searchRow";
 
 class SearchGrid extends Component {
-  state = {};
+  //state = { hey: "You smoke weed?" };
   render() {
     const { rows } = this.props;
     if (rows.length === 0) {
@@ -14,8 +14,9 @@ class SearchGrid extends Component {
             <tr>
               <th>Here Is a Table</th>
             </tr>
+
             {rows.map(row => (
-              <SearchRow />
+              <SearchRow searchTerm={row.searchTerm} />
             ))}
           </table>
         </div>

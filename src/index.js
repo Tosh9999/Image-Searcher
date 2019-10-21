@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 
 // COMPONENTS
 
-import App from './App';
+import App from './components/App';
 
 // STYLES
 
