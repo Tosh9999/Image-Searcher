@@ -22,7 +22,16 @@ class ImageSearchForm extends Component {
   }
 
   render() {
-    let grid = this.state.searchBegun && <SearchGrid />;
+    let grid = this.state.searchBegun && (
+      <SearchGrid
+        searchTerms={this.state.searchTerms.split("\n")}
+        api_key={this.state.api_key}
+        search_engine_id={this.state.search_engine_id}
+        results_per_term={this.state.results_per_term}
+        safe_search_level={this.state.safe_search_level}
+        picture_rights={this.state.picture_rights}
+      />
+    );
 
     return (
       <div>

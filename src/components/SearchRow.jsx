@@ -4,8 +4,18 @@ import SearchedImage from "./searchedImage";
 class SearchRow extends Component {
   //state = {};
 
+  constructor() {
+    super();
+  }
   render() {
-    const { imageUrls, searchTerm } = this.props;
+    const {
+      searchTerm,
+      api_key,
+      search_engine_id,
+      results_per_term,
+      safe_search_level,
+      picture_rights
+    } = this.props;
 
     return (
       <tr>
