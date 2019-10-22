@@ -18,29 +18,30 @@ class SearchGrid extends Component {
       return (
         <div>
           <table>
-            <tr>
-              <th>Here Is a Table</th>
-            </tr>
+            <thead>
+              <tr>
+                <th>Here Is a Table</th>
+              </tr>
+            </thead>
 
-            {searchTerms.map(term => (
-              <SearchRow
-                searchTerm={term}
-                api_key={api_key}
-                search_engine_id={search_engine_id}
-                results_per_term={results_per_term}
-                safe_search_level={safe_search_level}
-                picture_rights={picture_rights}
-              />
-            ))}
+            <tbody>
+              {searchTerms.map(term => (
+                <SearchRow
+                  key={term}
+                  searchTerm={term}
+                  api_key={api_key}
+                  search_engine_id={search_engine_id}
+                  results_per_term={results_per_term}
+                  safe_search_level={safe_search_level}
+                  picture_rights={picture_rights}
+                />
+              ))}
+            </tbody>
           </table>
         </div>
       );
     }
   }
 }
-
-SearchGrid.defaultProps = {
-  rows: []
-};
 
 export default SearchGrid;
