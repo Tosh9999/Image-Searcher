@@ -38,7 +38,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
-    "css-loader": "^0.28.11",
+    "css-loader": "^3.2.0",
     "eslint": "^4.19.1",
     "eslint-loader": "^2.0.0",
     "eslint-plugin-react": "^7.8.2",
@@ -52,7 +52,7 @@
     "uglifyjs-webpack-plugin": "^1.2.5",
     "url-loader": "^1.0.1",
     "webpack": "^4.20.2",
-    "webpack-bundle-analyzer": "^2.13.1",
+    "webpack-bundle-analyzer": "^3.6.0",
     "webpack-cli": "^3.3.9",
     "webpack-dashboard": "^2.0.0",
     "webpack-dev-server": "^3.1.4",
@@ -61,8 +61,10 @@
   "dependencies": {
     "axios": "^0.19.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "js-yaml": "^3.13.1",
     "normalize.css": "^8.0.0",
     "react": "^16.4.0",
-    "react-dom": "^16.4.0"
+    "react-dom": "^16.4.0",
+    "react-grid-gallery": "^0.5.5"
   }
 }

@@ -29,7 +29,6 @@ class SearchRow extends Component {
     fetch(completeSearchURL).then(response =>
       response.json().then(this.assignImageUrls.bind(this))
     );
-    //
   }
 
   assignImageUrls(searchDataJson) {

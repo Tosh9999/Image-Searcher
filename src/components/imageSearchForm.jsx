@@ -36,7 +36,7 @@ class ImageSearchForm extends Component {
     return (
       <div>
         <p>
-          <label for="searchTerms">Enter search terms separated by line</label>
+          <label>Enter search terms separated by line</label>
           <textarea
             id="searchTerms"
             name="searchTerms"
@@ -47,7 +47,7 @@ class ImageSearchForm extends Component {
           ></textarea>
         </p>
         <p>
-          <label for="api_key">Google API Key:</label>
+          <label>Google API Key:</label>
           <input
             id="api_key"
             type="text"
@@ -59,7 +59,7 @@ class ImageSearchForm extends Component {
           />
         </p>
         <p>
-          <label for="search_engine_id">Search Engine Id:</label>
+          <label>Search Engine Id:</label>
           <input
             id="search_engine_id"
             type="text"
@@ -71,7 +71,7 @@ class ImageSearchForm extends Component {
           />
         </p>
         <p>
-          <label for="results_per_term">Results per term:</label>
+          <label>Results per term:</label>
           <input
             id="results_per_term"
             type="text"
@@ -83,7 +83,7 @@ class ImageSearchForm extends Component {
           />
         </p>
         <p>
-          <label for="safe_search_level">Safe Search Level:</label>
+          <label>Safe Search Level:</label>
           <select
             id="safe_search_level"
             name="safe_search_level"
@@ -98,7 +98,7 @@ class ImageSearchForm extends Component {
           </select>
         </p>
         <p>
-          <label for="picture_rights"></label>
+          <label>Picture Rights:</label>
           <select
             id="picture_rights"
             name="picture_rights"
