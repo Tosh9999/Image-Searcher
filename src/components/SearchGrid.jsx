@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import SearchRow from "./searchRow";
 
 class SearchGrid extends Component {
-  //state = { hey: "You smoke weed?" };
   render() {
     const {
       searchTerms,
