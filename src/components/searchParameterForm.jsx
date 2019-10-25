@@ -3,7 +3,17 @@ import React, { Component } from "react";
 class SearchParameterForm extends Component {
   constructor() {
     super();
-    this.handleSearchTermsChange = this.handleSearchTermsChange.bind(this);
+    this.state = {
+      searchTermsInput: "",
+      apiKey: "",
+      searchEngineId: "",
+      resultsPerTerm: 10,
+      safeSearchLevel: "high",
+      pictureRights: "cc_publicdomain"
+    };
+    this.handleSearchTermsInputChange = this.handleSearchTermsInputChange.bind(
+      this
+    );
     this.handleResultsPerTermChange = this.handleResultsPerTermChange.bind(
       this
     );
@@ -20,28 +30,40 @@ class SearchParameterForm extends Component {
     this.handlePictureRightsChange = this.handlePictureRightsChange.bind(this);
   }
 
-  handleSearchTermsChange(e) {
-    this.props.onSearchTermsChange(e.target.value);
+  handleSearchTermsInputChange(searchTermsInputParam) {
+    this.setState({ searchTermsInput: searchTermsInputParam });
   }
 
-  handleApiKeyChange(e) {
-    this.props.onApiKeyChange(e.target.value);
+  handleApiKeyChange(apiKeyParam) {
+    this.setState({ apiKey: apiKeyParam });
   }
 
-  handleSearchEngineIdChange(e) {
-    this.props.onSearchEngineIdChange(e.target.value);
+  handleSearchEngineIdChange(searchEngineIdParam) {
+    this.setState({ searchEngineId: searchEngineIdParam });
   }
 
-  handleResultsPerTermChange(e) {
-    this.props.onResultsPerTermChange(e.target.value);
+  handleResultsPerTermChange(resultsPerTermParam) {
+    this.setState({ resultsPerTerm: resultsPerTermParam });
   }
 
-  handleSafeSearchLevelChange(e) {
-    this.props.onSafeSearchLevelChange(e.target.value);
+  handleSafeSearchLevelChange(safeSearchLevelParam) {
+    this.setState({ safeSearchLevel: safeSearchLevelParam });
   }
 
-  handlePictureRightsChange(e) {
-    this.props.onPictureRightsChange(e.target.value);
+  handlePictureRightsChange(pictureRightsParam) {
+    this.setState({ pictureRights: pictureRightsParam });
+  }
+
+  handleTriggerSearch() {
+    let searchTerms = this.state.searchTermsInput.split("\n");
+    this.props.onTriggerSearch(
+      searchTerms,
+      this.state.apiKey,
+      this.state.searchEngineId,
+      this.state.resultsPerTerm,
+      this.state.safeSearchLevel,
+      this.state.pictureRights
+    );
   }
 
   render() {
@@ -54,8 +76,8 @@ class SearchParameterForm extends Component {
           <textarea
             id="searchTerms"
             name="searchTerms"
-            value={this.props.searchTerms}
-            onChange={this.handleSearchTermsChange}
+            value={this.state.searchTerms}
+            onChange={this.handleSearchTermsInputChange}
           ></textarea>
         </p>
         <p>
@@ -64,7 +86,7 @@ class SearchParameterForm extends Component {
             id="apiKey"
             type="text"
             name="apiKey"
-            value={this.props.apiKey}
+            value={this.state.apiKey}
             onChange={this.handleApiKeyChange}
           />
         </p>
@@ -74,7 +96,7 @@ class SearchParameterForm extends Component {
             id="searchEngineId"
             type="text"
             name="searchEngineId"
-            value={this.props.searchEngineId}
+            value={this.state.searchEngineId}
             onChange={this.handleSearchEngineIdChange}
           />
         </p>
@@ -84,7 +106,7 @@ class SearchParameterForm extends Component {
             id="resultsPerTerm"
             type="text"
             name="resultsPerTerm"
-            value={this.props.resultsPerTerm}
+            value={this.state.resultsPerTerm}
             onChange={this.handleResultsPerTermChange}
           />
         </p>
@@ -93,7 +115,7 @@ class SearchParameterForm extends Component {
           <select
             id="safeSearchLevel"
             name="safeSearchLevel"
-            value={this.props.safeSearchLevel}
+            value={this.state.safeSearchLevel}
             onChange={this.handleSafeSearchLevelChange}
           >
             <option value="off">Off</option>
@@ -106,7 +128,7 @@ class SearchParameterForm extends Component {
           <select
             id="pictureRights"
             name="pictureRights"
-            value={this.props.pictureRights}
+            value={this.state.pictureRights}
             onChange={this.handlePictureRightsChange}
           >
             <option value="cc_publicdomain">cc_publicdomain</option>
@@ -116,7 +138,7 @@ class SearchParameterForm extends Component {
             <option value="cc_nonderived">cc_nonderived</option>
           </select>
         </p>
-        <button onClick={this.props.onTriggerSearch}>Search</button>
+        <button onClick={this.handleTriggerSearch}>Search</button>
       </div>
     );
   }
