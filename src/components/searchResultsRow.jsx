@@ -12,7 +12,7 @@ class SearchResultRow extends Component {
     this.setState({
       images: responseData.items.map(item => ({
         src: item.link,
-        thumbnailLink: item.image.thumbnailLink,
+        thumbnail: item.image.thumbnailLink,
         thumbnailWidth: item.image.thumbnailWidth,
         thumbnailHeight: item.image.thumbnailHeight
       })),
