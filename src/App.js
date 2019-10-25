@@ -65,10 +65,7 @@ export default class App extends Component {
       <div className="container">
         <h1 className="title">Enter Search Items</h1>
 
-        <SearchParameterForm
-          className="searchValuesForm"
-          onTriggerSearch={this.handleTriggerSearch}
-        />
+        <SearchParameterForm onTriggerSearch={this.handleTriggerSearch} />
         <div>{this.state.searchRows}</div>
       </div>
     );
