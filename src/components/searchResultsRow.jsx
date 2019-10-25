@@ -5,6 +5,7 @@ class SearchResultRow extends Component {
   constructor(props) {
     super(props);
     this.state = { isFetching: false, images: [] };
+    this.assignImages = this.assignImages.bind(this);
   }
 
   assignImages(responseData) {
@@ -26,6 +27,7 @@ class SearchResultRow extends Component {
       this.props.apiKey,
       this.props.searchEngineId,
       this.props.resultsNum,
+      this.props.safeSearchLevel,
       this.props.pictureRights,
       this.assignImages
     );

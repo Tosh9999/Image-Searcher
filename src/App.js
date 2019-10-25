@@ -6,6 +6,7 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = { searchRows: [] };
+    this.handleTriggerSearch = this.handleTriggerSearch.bind(this);
   }
 
   handleTriggerSearch(
@@ -16,17 +17,20 @@ export default class App extends Component {
     safeSearchLevel,
     pictureRights
   ) {
-    this.state.searchRows = searchTerms.map(term => (
-      <SearchResultsRow
-        searchTerm={term}
-        apiKey={apiKey}
-        searchEngineId={searchEngineId}
-        resultsNum={resultsPerTerm}
-        safeSearchLevel={safeSearchLevel}
-        pictureRights={pictureRights}
-        fetchDataFunction={this.fetchSearchData}
-      />
-    ));
+    this.setState({
+      searchRows: searchTerms.map((term, index) => (
+        <SearchResultsRow
+          key={`${term}${index}`}
+          searchTerm={term}
+          apiKey={apiKey}
+          searchEngineId={searchEngineId}
+          resultsNum={resultsPerTerm}
+          safeSearchLevel={safeSearchLevel}
+          pictureRights={pictureRights}
+          fetchDataFunction={this.fetchSearchData}
+        />
+      ))
+    });
   }
 
   fetchSearchData(
@@ -58,7 +62,7 @@ export default class App extends Component {
         <h1 className="title">Enter Search Items</h1>
 
         <SearchParameterForm onTriggerSearch={this.handleTriggerSearch} />
-        <div>{searchRows}</div>
+        <div>{this.state.searchRows}</div>
       </div>
     );
   }

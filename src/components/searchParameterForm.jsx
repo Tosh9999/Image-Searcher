@@ -28,30 +28,31 @@ class SearchParameterForm extends Component {
       this
     );
     this.handlePictureRightsChange = this.handlePictureRightsChange.bind(this);
+    this.handleTriggerSearch = this.handleTriggerSearch.bind(this);
   }
 
-  handleSearchTermsInputChange(searchTermsInputParam) {
-    this.setState({ searchTermsInput: searchTermsInputParam });
+  handleSearchTermsInputChange(e) {
+    this.setState({ searchTermsInput: e.target.value });
   }
 
-  handleApiKeyChange(apiKeyParam) {
-    this.setState({ apiKey: apiKeyParam });
+  handleApiKeyChange(e) {
+    this.setState({ apiKey: e.target.value });
   }
 
-  handleSearchEngineIdChange(searchEngineIdParam) {
-    this.setState({ searchEngineId: searchEngineIdParam });
+  handleSearchEngineIdChange(e) {
+    this.setState({ searchEngineId: e.target.value });
   }
 
-  handleResultsPerTermChange(resultsPerTermParam) {
-    this.setState({ resultsPerTerm: resultsPerTermParam });
+  handleResultsPerTermChange(e) {
+    this.setState({ resultsPerTerm: e.target.value });
   }
 
-  handleSafeSearchLevelChange(safeSearchLevelParam) {
-    this.setState({ safeSearchLevel: safeSearchLevelParam });
+  handleSafeSearchLevelChange(e) {
+    this.setState({ safeSearchLevel: e.target.value });
   }
 
-  handlePictureRightsChange(pictureRightsParam) {
-    this.setState({ pictureRights: pictureRightsParam });
+  handlePictureRightsChange(e) {
+    this.setState({ pictureRights: e.target.value });
   }
 
   handleTriggerSearch() {
