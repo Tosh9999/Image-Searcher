@@ -1,2 +1,11 @@
-@import '_settings.scss';
-@import '_base.scss';
+@import "_settings.scss";
+@import "_base.scss";
+
+.imageGridContainer {
+  margin: auto;
+  width: 80%;
+}
+
+.searchValuesForm {
+  color: green;
+}

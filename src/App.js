@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import SearchParameterForm from "./components/searchParameterForm";
 import SearchResultsRow from "./components/searchResultsRow";
+import "./styles/app.scss";
 
 export default class App extends Component {
   constructor() {
@@ -19,16 +20,19 @@ export default class App extends Component {
   ) {
     this.setState({
       searchRows: searchTerms.map((term, index) => (
-        <SearchResultsRow
-          key={`${term}${index}`}
-          searchTerm={term}
-          apiKey={apiKey}
-          searchEngineId={searchEngineId}
-          resultsNum={resultsPerTerm}
-          safeSearchLevel={safeSearchLevel}
-          pictureRights={pictureRights}
-          fetchDataFunction={this.fetchSearchData}
-        />
+        <div className="imageGridContainer" key={`${term}${index}`}>
+          <h2>{term}</h2>
+          <SearchResultsRow
+            searchTerm={term}
+            apiKey={apiKey}
+            searchEngineId={searchEngineId}
+            resultsNum={resultsPerTerm}
+            safeSearchLevel={safeSearchLevel}
+            pictureRights={pictureRights}
+            fetchDataFunction={this.fetchSearchData}
+          />
+          <br />
+        </div>
       ))
     });
   }
@@ -61,7 +65,10 @@ export default class App extends Component {
       <div className="container">
         <h1 className="title">Enter Search Items</h1>
 
-        <SearchParameterForm onTriggerSearch={this.handleTriggerSearch} />
+        <SearchParameterForm
+          className="searchValuesForm"
+          onTriggerSearch={this.handleTriggerSearch}
+        />
         <div>{this.state.searchRows}</div>
       </div>
     );

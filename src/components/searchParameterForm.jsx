@@ -69,7 +69,7 @@ class SearchParameterForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className="searchValuesForm">
         <p>
           <label>Enter search terms separated by line</label>
           <br />
