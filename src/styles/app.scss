@@ -1,8 +1,9 @@
 @import "_settings.scss";
 @import "_base.scss";
 
-.imageGridContainer {
+.searchResultsContainer {
   margin: auto;
+  display: grid;
   width: 80%;
 }
 

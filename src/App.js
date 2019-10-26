@@ -20,7 +20,7 @@ export default class App extends Component {
   ) {
     this.setState({
       searchRows: searchTerms.map((term, index) => (
-        <div className="imageGridContainer" key={`${term}${index}`}>
+        <div key={`${term}${index}`}>
           <h2>{term}</h2>
           <SearchResultsRow
             searchTerm={term}
@@ -66,7 +66,7 @@ export default class App extends Component {
         <h1 className="title">Enter Search Items</h1>
 
         <SearchParameterForm onTriggerSearch={this.handleTriggerSearch} />
-        <div>{this.state.searchRows}</div>
+        <div className="searchResultsContainer">{this.state.searchRows}</div>
       </div>
     );
   }
