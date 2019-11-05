@@ -1,4 +1,30 @@
 import React, { Component } from "react";
+import TextField from "@material-ui/core/TextField";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import { makeStyles } from "@material-ui/core/styles";
+
+const safeSearchLevels = [
+  { value: "off", label: "Off" },
+  { value: "medium", label: "Medium" },
+  { value: "high", label: "High" }
+];
+
+const pictureRightValues = [
+  { value: "cc_publicdomain", label: "Public Domain" },
+  { value: "cc_attribute", label: "Attribution" },
+  { value: "cc_sharealike", label: "Share-alike" },
+  { value: "cc_noncommercial", label: "Non-Commercial" },
+  { value: "cc_nonderived", label: "Non-Derived" }
+];
+
+{
+  /* <option value="cc_publicdomain">cc_publicdomain</option>
+<option value="cc_attribute">cc_attribute</option>
+<option value="cc_sharealike">cc_sharealike</option>
+<option value="cc_noncommercial">cc_noncommercial</option>
+<option value="cc_nonderived">cc_nonderived</option> */
+}
 
 class SearchParameterForm extends Component {
   constructor() {
@@ -70,61 +96,66 @@ class SearchParameterForm extends Component {
   render() {
     return (
       <div className="searchValuesForm">
-        <p>
-          <label>Enter search terms separated by line</label>
-          <br />
-          <br />
-          <textarea
+        <div>
+          <TextField
             id="searchTerms"
-            name="searchTerms"
+            label="Enter search terms separated by line"
+            margin="normal"
+            multiline
+            rows="5"
+            variant="outlined"
             value={this.state.searchTerms}
             onChange={this.handleSearchTermsInputChange}
-          ></textarea>
-        </p>
-        <p>
-          <label>Google API Key:</label>
-          <input
+          />
+        </div>
+        <div>
+          <TextField
             id="apiKey"
-            type="text"
-            name="apiKey"
+            label="Google API Key"
+            margin="normal"
+            variant="outlined"
             value={this.state.apiKey}
             onChange={this.handleApiKeyChange}
           />
-        </p>
-        <p>
-          <label>Search Engine Id:</label>
-          <input
+        </div>
+        <div>
+          <TextField
             id="searchEngineId"
-            type="text"
-            name="searchEngineId"
+            label="Search Engine Id"
+            margin="normal"
+            variant="outlined"
             value={this.state.searchEngineId}
             onChange={this.handleSearchEngineIdChange}
           />
-        </p>
-        <p>
-          <label>Results per term:</label>
-          <input
+        </div>
+        <div>
+          <TextField
             id="resultsPerTerm"
-            type="text"
-            name="resultsPerTerm"
+            label="Results per term"
+            margin="normal"
+            variant="outlined"
             value={this.state.resultsPerTerm}
             onChange={this.handleResultsPerTermChange}
           />
-        </p>
-        <p>
-          <label>Safe Search Level:</label>
-          <select
+        </div>
+        <div>
+          <TextField
             id="safeSearchLevel"
-            name="safeSearchLevel"
+            select
+            label="Safe Search Level"
+            margin="normal"
+            variant="outlined"
             value={this.state.safeSearchLevel}
             onChange={this.handleSafeSearchLevelChange}
           >
-            <option value="off">Off</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
-          </select>
-        </p>
-        <p>
+            {safeSearchLevels.map(option => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </TextField>
+        </div>
+        <div>
           <label>Picture Rights:</label>
           <select
             id="pictureRights"
@@ -138,7 +169,7 @@ class SearchParameterForm extends Component {
             <option value="cc_noncommercial">cc_noncommercial</option>
             <option value="cc_nonderived">cc_nonderived</option>
           </select>
-        </p>
+        </div>
         <button onClick={this.handleTriggerSearch}>Search</button>
       </div>
     );
