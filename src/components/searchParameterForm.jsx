@@ -1,21 +1,16 @@
 import React, { Component } from "react";
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
+import Checkbox from "@material-ui/core/Checkbox";
+import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
+import FormLabel from "@material-ui/core/FormLabel";
 import { makeStyles } from "@material-ui/core/styles";
 
 const safeSearchLevels = [
   { value: "off", label: "Off" },
   { value: "medium", label: "Medium" },
   { value: "high", label: "High" }
-];
-
-const pictureRightValues = [
-  { value: "cc_publicdomain", label: "Public Domain" },
-  { value: "cc_attribute", label: "Attribution" },
-  { value: "cc_sharealike", label: "Share-alike" },
-  { value: "cc_noncommercial", label: "Non-Commercial" },
-  { value: "cc_nonderived", label: "Non-Derived" }
 ];
 
 {
@@ -35,7 +30,13 @@ class SearchParameterForm extends Component {
       searchEngineId: "",
       resultsPerTerm: 10,
       safeSearchLevel: "high",
-      pictureRights: "cc_publicdomain"
+      pictureRights: {
+        cc_publicdomain: { checked: true, label: "Public Domain" },
+        cc_attribute: { checked: false, label: "Attribution" },
+        cc_sharealike: { checked: false, label: "Share-alike" },
+        cc_noncommercial: { checked: false, label: "Non-Commercial" },
+        cc_nonderived: { checked: false, label: "Non-Derived" }
+      }
     };
     this.handleSearchTermsInputChange = this.handleSearchTermsInputChange.bind(
       this
@@ -78,7 +79,9 @@ class SearchParameterForm extends Component {
   }
 
   handlePictureRightsChange(e) {
-    this.setState({ pictureRights: e.target.value });
+    this.setState({
+      pictureRights: { [e.target.value]: { checked: e.target.checked } }
+    });
   }
 
   handleTriggerSearch() {
@@ -156,19 +159,21 @@ class SearchParameterForm extends Component {
           </TextField>
         </div>
         <div>
-          <label>Picture Rights:</label>
-          <select
-            id="pictureRights"
-            name="pictureRights"
-            value={this.state.pictureRights}
-            onChange={this.handlePictureRightsChange}
-          >
-            <option value="cc_publicdomain">cc_publicdomain</option>
-            <option value="cc_attribute">cc_attribute</option>
-            <option value="cc_sharealike">cc_sharealike</option>
-            <option value="cc_noncommercial">cc_noncommercial</option>
-            <option value="cc_nonderived">cc_nonderived</option>
-          </select>
+          <FormLabel component="legend">Picture Rights:</FormLabel>
+          <FormGroup>
+            {Object.keys(this.state.pictureRights).map(pr => (
+              <FormControlLabel
+                key={pr}
+                control={
+                  <Checkbox
+                    checked={this.state.pictureRights[pr].checked}
+                    value={pr}
+                  />
+                }
+                label={this.state.pictureRights[pr].label}
+              />
+            ))}
+          </FormGroup>
         </div>
         <button onClick={this.handleTriggerSearch}>Search</button>
       </div>
