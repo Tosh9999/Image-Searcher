@@ -53,7 +53,9 @@ export default class App extends Component {
       `&searchType=image` +
       `&num=${encodeURIComponent(resultsPerTerm)}` +
       `&safe=${encodeURIComponent(safeSearchLevel)}` +
-      `&rights=${encodeURIComponent(pictureRights)}`;
+      `&rights=${encodeURIComponent(
+        Object.getOwnPropertyNames(pictureRights).join("|") // This is rather ugly
+      )}`;
     var completeSearchURL = `https://www.googleapis.com/customsearch/v1?${queryString}`;
     fetch(completeSearchURL).then(response =>
       response.json().then(assignImagesFunction)
