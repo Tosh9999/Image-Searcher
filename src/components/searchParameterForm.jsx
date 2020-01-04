@@ -79,8 +79,10 @@ class SearchParameterForm extends Component {
   }
 
   handlePictureRightsChange(e) {
+    var newPictureRights = Object.assign({}, this.state.pictureRights);
+    newPictureRights[e.target.value].checked = e.target.checked;
     this.setState({
-      pictureRights: { [e.target.value]: { checked: e.target.checked } }
+      pictureRights: newPictureRights
     });
   }
 
@@ -168,6 +170,7 @@ class SearchParameterForm extends Component {
                   <Checkbox
                     checked={this.state.pictureRights[pr].checked}
                     value={pr}
+                    onChange={this.handlePictureRightsChange}
                   />
                 }
                 label={this.state.pictureRights[pr].label}
