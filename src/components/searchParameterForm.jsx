@@ -13,14 +13,6 @@ const safeSearchLevels = [
   { value: "high", label: "High" }
 ];
 
-{
-  /* <option value="cc_publicdomain">cc_publicdomain</option>
-<option value="cc_attribute">cc_attribute</option>
-<option value="cc_sharealike">cc_sharealike</option>
-<option value="cc_noncommercial">cc_noncommercial</option>
-<option value="cc_nonderived">cc_nonderived</option> */
-}
-
 class SearchParameterForm extends Component {
   constructor() {
     super();
